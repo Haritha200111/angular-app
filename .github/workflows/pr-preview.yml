@@ -20,7 +20,7 @@ jobs:
         run: npm ci
 
       - name: Run Angular tests
-        run: npm test
+        run: ng test --watch=false --browsers=ChromeHeadless
 
       - name: Install Vercel CLI
         run: npm install -g vercel
