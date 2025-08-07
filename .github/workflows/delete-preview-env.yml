@@ -1,0 +1,13 @@
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup-vercel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Remove Preview Deployment
+        run: vercel rm angular-app --yes --token=${{ secrets.VERCEL_TOKEN }}
